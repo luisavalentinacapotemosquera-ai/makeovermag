@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Makeover Mag | Belleza Lila que Empodera</title>
+  <!-- Google Fonts: modernas y femeninas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f8f2ff 0%, #faf5ff 100%);
+      font-family: 'Inter', sans-serif;
+      color: #2d2430;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .logo-text, .quote {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* PALETA LILA, MAUVE, DETALLES BRILLANTES */
+    :root {
+      --lavanda: #d9c8ff;
+      --lila-suave: #e9daff;
+      --purpura-claro: #c7b0ff;
+      --lila-brillante: #b794f4;
+      --violeta-pastel: #c4a5f1;
+      --gold-lila: #e2c28b;
+      --shadow-sm: 0 12px 28px rgba(106, 66, 147, 0.08);
+      --shadow-hover: 0 20px 35px -10px rgba(128, 90, 173, 0.2);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER con efecto glassmorph */
+    header {
+      background: rgba(248, 242, 255, 0.85);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(circle, #cdb5ff, #a786df);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(128, 90, 173, 0.2);
+      animation: gentleGlow 2.5s infinite alternate;
+    }
+
+    .logo-img i {
+      font-size: 28px;
+      color: white;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    @keyframes gentleGlow {
+      0% { box-shadow: 0 0 0 0 rgba(183, 148, 244, 0.5); }
+      100% { box-shadow: 0 0 0 8px rgba(183, 148, 244, 0.2); }
+    }
+
+    .logo-text {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #8a6ccf, #b794f4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #423b4b;
+      font-weight: 500;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #b46ef3;
+      transform: translateY(-2px);
+    }
+
+    .btn-comprar {
+      background: linear-gradient(95deg, #b48cf2, #9d72da);
+      padding: 10px 28px;
+      border-radius: 40px;
+      color: white !important;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(128, 90, 173, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-comprar:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 22px rgba(128, 90, 173, 0.4);
+      background: linear-gradient(95deg, #c49dff, #a97ce0);
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #7f61b5;
+    }
+
+    /* Hero Section Lila */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0 70px;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      color: #342a3e;
+      font-weight: 500;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 28px 0 32px;
+      color: #5e4a6b;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      animation: floatSoft 4s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 55px;
+      box-shadow: 0 35px 45px -15px rgba(106, 66, 147, 0.25);
+      transition: transform 0.4s;
+      border: 2px solid rgba(199, 176, 255, 0.5);
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    section {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 48px;
+      font-weight: 500;
+      color: #412e4a;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #c7b0ff, #e6d5ff);
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    /* Productos en Lila */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 18px;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(183, 148, 244, 0.3);
+    }
+
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-hover);
+      border-color: #b794f4;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      background: #f2ebff;
+      margin-bottom: 16px;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(0.98);
+    }
+
+    .stars {
+      color: #f0b87b;
+      margin: 8px 0;
+    }
+
+    .btn-buy {
+      background: #e5d6ff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+      color: #5c3d86;
+    }
+
+    .btn-buy:hover {
+      background: #cfbbff;
+      transform: scale(0.94);
+    }
+
+    /* Beauty Challenge & Cabina Lila */
+    .challenge-cabina {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: #f3ecfe;
+      border-radius: 60px;
+      padding: 40px;
+    }
+
+    .challenge-box, .cabina-box {
+      flex: 1;
+      background: rgba(255, 245, 255, 0.8);
+      border-radius: 44px;
+      padding: 28px;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .led-effect {
+      font-size: 2rem;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+      animation: flickerLila 1.5s infinite;
+    }
+
+    @keyframes flickerLila {
+      0% { text-shadow: 0 0 2px #cbabff; opacity: 0.8;}
+      100% { text-shadow: 0 0 12px #b178ef; opacity: 1;}
+    }
+
+    .upload-photo input, .upload-photo button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 50px;
+      border: 1px solid #cdb8fa;
+    }
+
+    .btn-challenge {
+      background: #aa85e6;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .gallery-mini {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .mini-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 2px solid #decbff;
+    }
+
+    /* Muro Tutoriales TikTok */
+    .tutorials-grid {
+      display: flex;
+      overflow-x: auto;
+      gap: 24px;
+      padding: 8px 0 28px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .tutorial-card {
+      min-width: 280px;
+      background: white;
+      border-radius: 38px;
+      scroll-snap-align: start;
+      transition: 0.2s;
+    }
+
+    .tutorial-vid {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(125deg, #eadbff, #dccaff);
+      border-radius: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #9773cf;
+    }
+
+    /* Testimonios */
+    .testimonios-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+
+    .testi-card {
+      background: white;
+      width: 280px;
+      padding: 28px;
+      border-radius: 48px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Sección tipos de clientas */
+    .personas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .persona-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(8px);
+      border-radius: 56px;
+      padding: 32px 20px;
+      flex: 1;
+      min-width: 210px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid #e2ceff;
+    }
+
+    .persona-card:hover {
+      transform: translateY(-8px);
+      background: white;
+    }
+
+    /* Contacto lila */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: #efe6ff;
+      border-radius: 60px;
+      padding: 44px;
+    }
+
+    .form-modern input, .form-modern textarea {
+      width: 100%;
+      padding: 14px 20px;
+      margin: 12px 0;
+      border-radius: 60px;
+      border: 1px solid #cdbbf5;
+      background: white;
+    }
+
+    .social-icons a {
+      font-size: 2rem;
+      margin-right: 20px;
+      color: #9770cf;
+      transition: 0.2s;
+    }
+
+    footer {
+      background: #e9dfff;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+      border-radius: 48px 48px 0 0;
+    }
+
+    @media (max-width: 780px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 20px 0;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+
+    button, .btn-buy, .btn-challenge, input[type="submit"] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <div class="logo-img"><i class="fas fa-magic"></i></div>
+        <div class="logo-text">Makeover Mag</div>
+      </div>
+      <div class="menu-icon" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#beauty-challenge">Beauty Challenge</a></li>
+        <li><a href="#tutorials">Tutoriales</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#" class="btn-comprar" id="headerShopBtn">Comprar ahora</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section con modelo lila y eslogan -->
+  <div class="container" id="home">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Maquillaje de calidad que te inspira a ser audaz, <br> te mantiene segura y te acompaña en toda tu evolución.</h1>
+        <p>Descubre el poder de la belleza lila: empoderamiento, innovación y autenticidad.</p>
+        <a href="#" class="btn-comprar" style="display:inline-block; text-decoration:none;">Explorar colección ✨</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/700x800/e1d1ff/c29eff?text=Model+Lila+Glow" alt="Modelo maquillaje glam natural">
+      </div>
+    </div>
+  </div>
+
+  <!-- Sobre Nosotros -->
+  <div class="container">
+    <h2 class="section-title">💜 Realza tu autenticidad 💜</h2>
+    <div style="background: #eee3ff; border-radius: 56px; padding: 44px; text-align: center; max-width: 950px; margin: 0 auto;">
+      <p style="font-size: 1.2rem; line-height: 1.6;">En <strong>Makeover Mag</strong> realzamos la confianza con maquillaje de calidad premium y asesoría personalizada. Creemos que la belleza es una herramienta de transformación, y cada producto está pensado para que brilles con elegancia e innovación.</p>
+    </div>
+  </div>
+
+  <!-- Productos destacados con imagenes lila elegantes -->
+  <div class="container" id="productos">
+    <h2 class="section-title">⭐ Productos estrella ⭐</h2>
+    <div class="products-grid" id="productGrid"></div>
+  </div>
+
+  <!-- Beauty Challenge y cabina interactiva con LED -->
+  <div class="container" id="beauty-challenge">
+    <div class="challenge-cabina">
+      <div class="challenge-box">
+        <h3><i class="fas fa-trophy" style="color:#aa85e6;"></i> Beauty Challenge #LilaGlow</h3>
+        <p>Comparte tu arte, sube tu foto y participa por premios exclusivos en productos.</p>
+        <div class="upload-photo">
+          <input type="file" id="photoUpload" accept="image/*">
+          <button class="btn-challenge" id="uploadBtn">Subir mi look</button>
+        </div>
+        <div id="challengeGallery" class="gallery-mini"></div>
+      </div>
+      <div class="cabina-box">
+        <div class="led-effect">
+          <i class="fas fa-lightbulb"></i> <i class="fas fa-star-of-life"></i> <i class="fas fa-camera-retro"></i>
+        </div>
+        <h3>📸 Cabina LED × Influencer</h3>
+        <p>Luces violeta, espejo inteligente y estética viral para tu contenido. ¡Simula tu selfie con glow!</p>
+        <div style="display: flex; justify-content: center; gap: 25px; margin: 20px 0;">
+          <i class="fab fa-tiktok" style="font-size: 2rem; color:#b87bef;"></i>
+          <i class="fab fa-instagram" style="font-size: 2rem; color:#e2b87a;"></i>
+          <i class="fas fa-wand-magic" style="font-size: 2rem;"></i>
+        </div>
+        <button class="btn-challenge" id="simulateCam" style="background:#9e77d4;">✨ Tomar foto interactiva ✨</button>
+        <div id="selfiePreview" style="margin-top: 16px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Muro de Tutoriales estilo TikTok -->
+  <div class="container" id="tutorials">
+    <h2 class="section-title">🎥 Muro de Tutoriales #MakeoverMag 🎥</h2>
+    <div class="tutorials-grid" id="tutorialsGrid"></div>
+  </div>
+
+  <!-- Testimonios -->
+  <div class="container">
+    <h2 class="section-title">💬 Clientes que empoderan 💬</h2>
+    <div class="testimonios-grid" id="testimonials"></div>
+  </div>
+
+  <!-- Tipos de clientas: Sofía, Camila, Laura -->
+  <div class="container">
+    <h2 class="section-title">🌸 Encuentra tu tribu 🌸</h2>
+    <div class="personas">
+      <div class="persona-card"><i class="fas fa-smile-wink" style="font-size: 2.5rem; color:#b46ef3;"></i><h3>Sofía</h3><p>Adolescente creativa, descubre el maquillaje con diversión y brillo.</p><small>✨ Paletas lila, glitter ✨</small></div>
+      <div class="persona-card"><i class="fas fa-feather-alt" style="font-size: 2.5rem; color:#b46ef3;"></i><h3>Camila</h3><p>Joven que busca glow natural y skincare ligero.</p><small>💜 Bases ultralivianas 💜</small></div>
+      <div class="persona-card"><i class="fas fa-spa" style="font-size: 2.5rem;"></i><h3>Laura</h3><p>Elegancia + cuidado antiage, sérums y protección.</p><small>🌟 Skincare de lujo 🌟</small></div>
+    </div>
+  </div>
+
+  <!-- Formulario de contacto elegante -->
+  <div class="container" id="contacto">
+    <div class="contact-flex">
+      <div style="flex:1">
+        <h3><i class="fas fa-envelope"></i> Hablemos de belleza</h3>
+        <p>Te asesoramos para que encuentres tu estilo único y participes en nuestros retos.</p>
+        <div class="social-icons" style="margin-top: 28px;">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+      <div style="flex:1.5" class="form-modern">
+        <form id="contactForm">
+          <input type="text" placeholder="Tu nombre" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <textarea rows="3" placeholder="Cuéntanos tu reto de maquillaje o consulta..."></textarea>
+          <input type="submit" value="Enviar mensaje 💜" style="background:#bc9cff; color:white; border:none; font-weight:bold;">
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="text-align: center;">
+    <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 20px;">
+      <a href="#" style="text-decoration:none; color:#8267ae;">Política de privacidad</a>
+      <a href="#" style="text-decoration:none; color:#8267ae;">Términos y condiciones</a>
+      <a href="#" style="text-decoration:none; color:#8267ae;">Envíos y devoluciones</a>
+    </div>
+    <div class="social-icons">
+      <i class="fab fa-instagram"></i> <i class="fab fa-tiktok"></i> <i class="fab fa-twitter"></i>
+    </div>
+    <p style="margin-top: 28px;">&copy; 2025 Makeover Mag · Belleza que transforma. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Productos (con tonalidades lila y emojis)
+  const productos = [
+    { nombre: "Labial Lila Velvet", categoria: "Labiales", precio: "$24.90", stars: 5, img: "https://placehold.co/400x400/f0e7ff/c28eff?text=Labial+Lila" },
+    { nombre: "Base Illuminating", categoria: "Bases", precio: "$42.00", stars: 4.5, img: "https://placehold.co/400x400/f1e9ff/c28eff?text=Base+Glow" },
+    { nombre: "Paleta Sombras Lavanda", categoria: "Sombras", precio: "$48.00", stars: 5, img: "https://placehold.co/400x400/ede4ff/c28eff?text=Sombras" },
+    { nombre: "Rubor en Crema Lila", categoria: "Rubores", precio: "$19.90", stars: 4, img: "https://placehold.co/400x400/f3ebff/c28eff?text=Rubor" },
+    { nombre: "Suero Renovador", categoria: "Skincare", precio: "$56.00", stars: 5, img: "https://placehold.co/400x400/efe5ff/c28eff?text=Skincare" }
+  ];
+
+  function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    if (grid) {
+      grid.innerHTML = productos.map(p => `
+        <div class="product-card">
+          <img class="product-img" src="${p.img}" alt="${p.nombre}">
+          <div class="product-title"><strong>${p.nombre}</strong></div>
+          <div class="stars">${'★'.repeat(Math.floor(p.stars))}${p.stars % 1 ? '½' : ''}${'☆'.repeat(5-Math.ceil(p.stars))}</div>
+          <div class="price" style="color:#aa85e6; font-weight:bold;">${p.precio}</div>
+          <button class="btn-buy" data-product="${p.nombre}">Comprar ahora →</button>
+        </div>
+      `).join('');
+      document.querySelectorAll('.btn-buy').forEach(btn => {
+        btn.addEventListener('click', (e) => alert(`💜 ${e.target.dataset.product} añadido a tu bolsa con estilo.`));
+      });
+    }
+  }
+
+  // Tutoriales
+  const tutorials = [
+    { titulo: "Efecto Lila Glow", emoji: "✨" },
+    { titulo: "Labial Degradado", emoji: "💋" },
+    { titulo: "Skin Prep Viral", emoji: "🧴" },
+    { titulo: "Sombras Metálicas", emoji: "🎨" }
+  ];
+  function renderTutorials() {
+    const cont = document.getElementById('tutorialsGrid');
+    if (cont) {
+      cont.innerHTML = tutorials.map(t => `
+        <div class="tutorial-card">
+          <div class="tutorial-vid"><i class="fab fa-tiktok" style="font-size:3rem; color:#916dd5;"></i> ${t.emoji}</div>
+          <div style="padding:16px"><strong>${t.titulo}</strong> <span style="color:#a97cf0;"> ▶ Ver tutorial</span></div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Testimonios
+  const testimonios = [
+    { nombre: "Mariana L.", text: "Makeover Mag me hizo amar mi rutina, los tonos lila son perfectos.", stars: 5 },
+    { nombre: "Valentina P.", text: "La asesoría y los productos son de otro nivel. ¡Me siento empoderada!", stars: 5 },
+    { nombre: "Camila R.", text: "Beauty Challenge increíble, comunidad muy creativa.", stars: 4.5 }
+  ];
+  function renderTestimonials() {
+    const cont = document.getElementById('testimonials');
+    if (cont) {
+      cont.innerHTML = testimonios.map(t => `
+        <div class="testi-card">
+          <i class="fas fa-user-astronaut" style="font-size: 2rem; color:#b794f4;"></i>
+          <h4>${t.nombre}</h4>
+          <div class="stars">${'★'.repeat(Math.floor(t.stars))}${t.stars % 1 ? '½' : ''}</div>
+          <p>“${t.text}”</p>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Galería Challenge
+  let uploadedImages = [];
+  function updateGallery() {
+    const galleryDiv = document.getElementById('challengeGallery');
+    if (galleryDiv) {
+      galleryDiv.innerHTML = uploadedImages.map(src => `<img src="${src}" class="mini-img">`).join('');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const uploadBtn = document.getElementById('uploadBtn');
+    const fileInput = document.getElementById('photoUpload');
+    if (uploadBtn) {
+      uploadBtn.addEventListener('click', () => {
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            uploadedImages.push(e.target.result);
+            updateGallery();
+            alert("💜 ¡Foto subida a #LilaGlow! Participas por premios en productos.");
+            fileInput.value = '';
+          };
+          reader.readAsDataURL(file);
+        } else alert("Selecciona una foto para unirte al reto ✨");
+      });
+    }
+    const simCam = document.getElementById('simulateCam');
+    if (simCam) {
+      simCam.addEventListener('click', () => {
+        const preview = document.getElementById('selfiePreview');
+        preview.innerHTML = '<div style="background:#efe6ff; border-radius:40px; padding:14px; animation: pulseLila 0.8s;">📸 ¡Luces LED Lila activadas! Captura tu mejor pose y compártela con #MakeoverCabina 💜</div>';
+      });
+    }
+  });
+
+  // Menú responsive
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+  }
+  const headerShop = document.getElementById('headerShopBtn');
+  if (headerShop) headerShop.addEventListener('click', (e) => { e.preventDefault(); alert("🛍️ Explora nuestra colección lila, envíos gratis en compras +$50."); });
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("💌 ¡Gracias! Nuestro beauty coach te responderá con tips personalizados.");
+      contactForm.reset();
+    });
+  }
+
+  renderProducts();
+  renderTutorials();
+  renderTestimonials();
+</script>
+</body>
+</html>
